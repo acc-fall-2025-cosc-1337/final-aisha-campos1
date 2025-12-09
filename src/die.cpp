@@ -11,3 +11,4 @@ int Die::roll() {
 
     return dist(gen);
 }
+

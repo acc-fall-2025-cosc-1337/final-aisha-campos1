@@ -11,4 +11,4 @@ class Die {
     int sides;
 
 };
-#endif 
+
