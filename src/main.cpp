@@ -1,5 +1,6 @@
 #include <iostream>
 #include "die.h"
+#include "roll.h"
 #include <cassert>
 
 int main() 
