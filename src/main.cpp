@@ -2,6 +2,8 @@
 #include "die.h"
 #include "roll.h"
 #include "shooter.h"
+#include "point_phase.h"
+#include "come_out_phase.h"
 #include <cassert>
 
 int main() 
@@ -33,6 +35,17 @@ int main()
 			assert(value >= 2 && value <= 12);
 		}
 		gameShooter.display_rolled_values();
+	}
+	{
+		Roll roll;
+
+		ComeOutPhase comeOut;
+		roll.roll_dice();
+		std::cout<< "Come-out outcome: " <<(int)comeOut.get_outcome(&roll) << "\n";
+
+		PointPhase pointPhase(5);
+		roll.roll_dice();
+		std::cout<< "Point phase outcome: " <<(int)pointPhase.get_outcome(&roll) << "\n";
 	}
 	std::cout << "All rolls are within the valid range." << std::endl;
 	return 0;

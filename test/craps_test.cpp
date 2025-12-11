@@ -3,6 +3,13 @@
 #include "../src/die.h"
 #include "../src/roll.h"
 
+// Function that shows roll outcome
+int showRollOutcome(roll& shooter) {
+	shooter.roll_dice();
+	int outcome = shooter.roll_value();
+	return outcome;
+}
+
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
@@ -60,5 +67,13 @@ TEST_CASE("Verify Roll Result Range 2-12", "shooter") {
 	}
 }
 
-
-
+TEST_CASE("Show Roll Outcome Function", "shooter") {
+	Die d1;
+	Die d2;
+	roll shooter(d1, d2);
+	for (int i = 0; i < 5; ++i) {
+		int outcome = showRollOutcome(shooter);
+		REQUIRE(outcome >= 2);
+		REQUIRE(outcome <= 12);
+	}
+}
